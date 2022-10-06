@@ -9,6 +9,7 @@
     "format": "prettier . --write"
   },
   "dependencies": {
+    "cropperjs": "^1.5.12",
     "vue": "^3.2.38",
     "vue-cropperjs": "^5.0.0"
   },
