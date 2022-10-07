@@ -1,24 +1,19 @@
 <template>
-  <div class="flex justify-center">
+  <div class="flex">
     <div>
-      <vue-cropper
-        class="h-[349px] mb-8 w-[614px]"
-        ref="cropper"
-        :src="cropperImgSrc"
-        alt="berserk"
-        preview=".preview"
-        :aspect-ratio="16 / 9"
-      >
+      <vue-cropper ref="cropper" :src="cropperImgSrc" alt="berserk" preview=".preview" :aspect-ratio="1 / 1">
       </vue-cropper>
       <div>
         <button class="bg-blue-800 text-white py-2 px-3" @click="getCropper">crop</button>
         <button class="bg-blue-800 text-white ml-3 py-2 px-3" @click="resetCropper">reset</button>
+        <button class="bg-blue-800 text-white ml-3 py-2 px-3" @click="zoomIn">Zoom in</button>
+        <button class="bg-blue-800 text-white ml-3 py-2 px-3" @click="zoomOut">Zoom out</button>
         <input class="ml-3" type="file" name="image" accept="image/*" @change="setImage" />
       </div>
     </div>
-    <div class="ml-44 w-[307px]">
+    <div class="ml-2 w-[307px]">
       <p>Preview</p>
-      <div class="h-[400px] mb-3 w-[400px] overflow-hidden preview"></div>
+      <div class="rounded-full h-[300px] mb-3 w-[300px] overflow-hidden preview"></div>
       <p>Cropped Image</p>
       <div>
         <img v-if="cropedImg" :src="cropedImg" alt="Cropped Image" />
@@ -55,6 +50,14 @@ const setImage = e => {
   reader.addEventListener('load', event => {
     cropper.value.replace(event.target.result);
   });
+};
+
+const zoomIn = () => {
+  cropper.value.cropper.zoom(0.1);
+};
+
+const zoomOut = () => {
+  cropper.value.cropper.zoom(-0.1);
 };
 </script>
 
