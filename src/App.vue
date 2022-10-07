@@ -7,6 +7,7 @@
         :src="cropperImgSrc"
         alt="berserk"
         preview=".preview"
+        :aspect-ratio="16 / 9"
       >
       </vue-cropper>
       <div>
@@ -17,7 +18,7 @@
     </div>
     <div class="ml-44 w-[307px]">
       <p>Preview</p>
-      <div class="h-[400px] mb-3 w-[307px] overflow-hidden preview"></div>
+      <div class="h-[400px] mb-3 w-[400px] overflow-hidden preview"></div>
       <p>Cropped Image</p>
       <div>
         <img v-if="cropedImg" :src="cropedImg" alt="Cropped Image" />
